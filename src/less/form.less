@@ -1,0 +1,42 @@
+.form {
+	&__input {
+		display: block;
+		max-width: 360px;
+		font-family: 'Franklin Gothic', sans-serif;
+		font-weight: 400;
+
+		input {
+			display: inherit;
+			width: inherit;
+			height: inherit;
+			box-sizing: border-box;
+			font-size: 16px;
+			line-height: 18px;
+
+			&::placeholder {
+				color: #B9C2CC;
+			}
+		}
+	}
+
+	&__btn {
+		font-size: 18px;
+		line-height: 20px;
+		letter-spacing: 0.22em;
+		text-transform: uppercase;
+		font-weight: 600;
+		color: @gold;
+		background-color: transparent;
+		border-color: transparent;
+		border-style: solid;
+		border-bottom: 1px solid @gold;
+
+		&:hover, &:active, &:focus {
+			border-color: @gold;
+		}
+
+		&:active {
+			border-style: inset;
+		}
+	}
+}
