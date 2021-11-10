@@ -2,20 +2,35 @@
 	&__input {
 		display: block;
 		max-width: 360px;
-		font-family: 'Franklin Gothic', sans-serif;
-		font-weight: 400;
 
-		input {
+		input, textarea {
 			display: inherit;
 			width: inherit;
 			height: inherit;
+			border: inherit;
 			box-sizing: border-box;
+			font-family: 'Franklin Gothic', sans-serif;
+			font-weight: 400;
 			font-size: 16px;
 			line-height: 18px;
+			color: #B9C2CC;
 
 			&::placeholder {
 				color: #B9C2CC;
 			}
+		}
+	}
+
+	&__textarea {
+		min-height: 140px;
+		margin-bottom: 0 !important;
+
+		textarea {
+			display: block;
+			width: 100% !important;
+			min-height: inherit !important;
+			padding-top: 10px !important;
+			resize: none;
 		}
 	}
 

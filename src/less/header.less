@@ -2,9 +2,42 @@
 	display: flex;
 	align-items: center;
 	padding: 30px 0;
+	box-sizing: border-box;
+	position: relative;
+	z-index: 20;
+
+	&--fixed {
+		justify-content: space-around;
+		width: 100%;
+		padding: 20px 150px;
+		background: @blue;
+		position: fixed;
+		top: 0;
+		left: 0;
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.07);
+		animation-name: show-header;
+		animation-duration: 0.5s;
+		animation-direction: backwards;
+
+		.lg-block({
+			padding: 20px 50px;
+		});
+
+		.md-block({
+			padding: 20px;
+		});
+	}
 
 	&__nav {
+		flex-grow: 1;
+	}
+
+	&__navBody {
 		margin-left: auto;
+
+		.md-block({
+			margin-right: auto;
+		});
 	}
 
 	&__link {
@@ -12,12 +45,33 @@
 		color: @white;
 		transition: color .4s ease;
 
-		&:hover, &:active, &:focus {
+		.md-block({
+			margin: 0 36px;
+		});
+
+		.sm-block({
+			font-size: 14px;
+			margin: 0 10px;
+		});
+
+		&:hover, &:focus {
 			color: @gold;
+		}
+
+		&:active {
+			color: darken(@gold, 20%);
 		}
 	}
 
 	&__waLink {
 		margin-left: 58px;
+
+		.sm-block({
+			margin-left: 0;
+		});
+
+		.xs-block({
+			display: none;
+		});
 	}
 }

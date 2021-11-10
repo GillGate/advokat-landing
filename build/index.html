@@ -13,12 +13,17 @@
 				<div class="header__logo">
 					<img src="img/logo.svg" alt="">
 				</div>
-				<nav class="header__nav">
-					<a href="#main" class="header__link">Главная</a>
-					<a href="#services" class="header__link">Услуги</a>
-					<a href="#about" class="header__link">Обо мне</a>
-					<a href="#contacts" class="header__link">Контакты</a>
-				</nav>
+				<div class="header__nav nav">
+					<button type="button" class="nav__bar">
+						<span></span>
+					</button>
+					<nav class="header__navBody nav__body">
+						<a href="#main" class="navigateLink header__link ">Главная</a>
+						<a href="#service" class="navigateLink header__link ">Услуги</a>
+						<a href="#about" class="navigateLink header__link ">Обо мне</a>
+						<a href="#contacts" class="navigateLink header__link ">Контакты</a>
+					</nav>
+				</div>
 				<a href="#" class="header__waLink">
 					<img src="img/wa-logo.svg" alt="Свзяаться WhatsApp">
 				</a>
@@ -31,12 +36,15 @@
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
 					</p>
 					<div class="intro__controls">
-						<a href="#contacts" class="intro__btn intro__btn--active">Связаться</a>
-						<a href="#services" class="intro__btn">Услуги</a>
+						<a href="#contacts" class="navigateLink intro__btn intro__btn--gold">Связаться</a>
+						<a href="#service" class="navigateLink intro__btn">Услуги</a>
 					</div>
 				</div>
 				<div class="intro__img">
-					<img src="img/advokatt-alt.png" alt="Адвокат Ольга Егорова">
+					<picture>
+						<!--source media="(min-width:760px)" srcset="img/advokatt-alt.png" alt="Адвокат Ольга Егорова"-->
+						<img src="img/advokatt-alt.png" alt="Адвокат Ольга Егорова">
+					</picture>
 				</div>
 			</div>
 		</div>
@@ -47,7 +55,7 @@
 				<img src="img/advantage-1.svg" alt="Кубок">
 			</div>
 			<p class="advantage__text">
-				«Адвокат года 2019» <br> Липецк обл.
+				«Адвокат года 2019» Липецк обл.
 			</p>
 		</div>
 		<div class="advantage__item">
@@ -63,11 +71,11 @@
 				<img src="img/advantage-3.svg" alt="Реестр">
 			</div>
 			<p class="advantage__text">
-				Реестр адвокатов г. Москвы <br> (№ 77/15547) с 2020 г.
+				Реестр адвокатов г. Москвы (№ 77/15547) с 2020 г.
 			</p>
 		</div>
 	</section>
-	<section class="service">
+	<section class="service" id="service">
 		<div class="container">
 			<h2 class="title service__title">
 				Услуги
@@ -77,7 +85,7 @@
 					<div class="service__img">
 						<img src="img/court.jpg" width="500" alt="Судебный процесс">
 					</div>
-					<div class="service__decoration">
+					<div class="service__decoration service__decoration--aside">
 						<img src="img/service-decor.svg" alt="">
 					</div>
 				</div>
@@ -128,6 +136,9 @@
 					</li>
 				</ul>
 			</div>
+			<div class="service__decoration service__decoration--bottom">
+				<img src="img/service-decor.svg" alt="">
+			</div>
 		</div>
 	</section>
 	<section class="advice">
@@ -155,5 +166,146 @@
 			</div>
 		</div>
 	</section>
+	<section class="about">
+		<div class="container" id="about">
+			<h2 class="title about__title">Обо мне</h2>
+			<div class="about__wrapper">
+				<div class="about__info">
+					<div class="about__desc">
+						<div class="about__descItem">
+							<p class="text about__descText">В 1995 году с отличием окончила Саратовскую государственную академию права.</p>
+							<p class="text about__descText">С 1998 года осуществляю адвокатскую деятельность. На моем счету сотни дел в арбитражных судах и судах общей юрисдикции, в правоохранительных и административных органах.</p>
+						</div>
+						<div class="about__descItem">
+							<p class="text about__descText">В 1995 году с отличием окончила Саратовскую государственную академию права.</p>
+						</div>
+						<div class="about__descItem">
+							<p class="text about__descText">В 1995 году с отличием окончила Саратовскую государственную академию права.</p>
+							<p class="text about__descText">С 1998 года осуществляю адвокатскую деятельность. На моем счету сотни дел в арбитражных судах и судах общей юрисдикции, в правоохранительных и административных органах.</p>
+						</div>
+						<div class="about__descItem">
+							<p class="text about__descText">В 1995 году с отличием окончила Саратовскую государственную академию права.</p>
+						</div>
+						<div class="about__descItem">
+							<p class="text about__descText">В 1995 году с отличием окончила Саратовскую государственную академию права.</p>
+							<p class="text about__descText">С 1998 года осуществляю адвокатскую деятельность. На моем счету сотни дел в арбитражных судах и судах общей юрисдикции, в правоохранительных и административных органах.</p>
+						</div>
+					</div>
+					<div class="about__controls">
+						<div class="about__btnWrapper">
+							<button type="button" class="about__btn about__btn--prev">
+								<img src="img/about-arrow-left.svg" alt="Назад">
+							</button>
+							<button type="button" class="about__btn about__btn--next">
+								<img src="img/about-arrow-left.svg" alt="Вперёд">
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="about__slider">
+					<div class="about__sliderImg">
+						<img src="img/about-1.jpg" alt="Образование">
+					</div>
+					<div class="about__sliderImg">
+						<img src="img/about-1.jpg" alt="Образование">
+					</div>
+					<div class="about__sliderImg">
+						<img src="img/about-1.jpg" alt="Образование">
+					</div>
+					<div class="about__sliderImg">
+						<img src="img/about-1.jpg" alt="Образование">
+					</div>
+					<div class="about__sliderImg">
+						<img src="img/about-1.jpg" alt="Образование">
+					</div>
+				</div>
+				<ul class="about__nav">
+					<li class="about__navItem about__navItem--active" data-slick-dot="0">Образование</li>
+					<li class="about__navItem" data-slick-dot="1">Практика</li>
+					<li class="about__navItem" data-slick-dot="2">Специализация</li>
+					<li class="about__navItem" data-slick-dot="3">Административный опыт</li>
+					<li class="about__navItem" data-slick-dot="4">Уголовный опыт</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+	<section class="contacts" id="contacts">
+		<div class="container">
+			<h2 class="title contacts__title">Контакты</h2>
+			<div class="contacts__wrapper">
+				<div class="contacts__img">
+					<img src="img/contacts-img.jpg" width="832" alt="Судебный процесс">
+				</div>
+				<div class="contacts__aside">
+					<ul class="contacts__list contactsList">
+						<li class="contactsList__item contactsList__item--phone">
+							<div class="contactsList__text">
+								Телефон/WhatsApp: <a class="contactsList__item--value" href="tel:+79036432152">+7 903 643 2152</a>
+							</div>
+						</li>
+						<li class="contactsList__item contactsList__item--email">
+							<div class="contactsList__text">
+								E-mail: <a class="contactsList__item--value" href="mailto:advokat_egorova@list.ru">advokat_egorova@list.ru</a>
+							</div>
+						</li>
+						<li class="contactsList__item contactsList__item--location">
+							<div class="contactsList__text">
+								Адресс: 
+								<address class="contactsList__item--value">
+									г.Москва, Малый Полуярославский переулок, д.3/5, стр.1, офис 413 «а» 
+								</address>
+							</div>
+						</li>
+						<li class="contactsList__item contactsList__item--time">
+							<div class="contactsList__text">
+								Часы работы: <span class="contactsList__item--value">9:00 - 18:00</span>
+							</div>
+						</li>
+					</ul>
+					<form class="form contacts__form contactsForm">
+						<div class="contactsForm__wrapper">
+							<h3 class="contactsForm__title">Запись на консультацию юриста</h3>
+							<label class="form__input contactsForm__input" data-error="">
+								<input type="text" name="contacts-name" placeholder="Имя" maxlength="30">
+							</label>
+							<label class="form__input contactsForm__input" data-error="">
+								<input type="text" name="contacts-secondname" placeholder="Фамилия" maxlength="40">
+							</label>
+							<label class="form__input contactsForm__input" data-error="">
+								<input type="phone" name="contacts-phone" placeholder="Телефон" maxlength="20">
+							</label>
+							<label class="form__input contactsForm__input" data-error="">
+								<input type="email" name="contacts-email" placeholder="E-mail" maxlength="50">
+							</label>
+							<label class="form__input contactsForm__input form__textarea">
+								<textarea placeholder="Описание проблемы" name="contacts-desc" maxlength="800"></textarea>
+							</label>
+						</div>
+						<button class="form__btn contactsForm__btn">Отправить</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="map"></section>
+	<footer class="footer">
+		<div class="container">
+			<div class="footer__wrapper">
+				<div class="footer__logo">
+					<img src="img/logo.svg" alt="">
+				</div>
+				<nav class="footer__nav">
+					<a href="#main" class="navigateLink footer__link">Главная</a>
+					<a href="#services" class="navigateLink footer__link">Услуги</a>
+					<a href="#about" class="navigateLink footer__link">Обо мне</a>
+					<a href="#contacts" class="navigateLink footer__link">Контакты</a>
+				</nav>
+				<a href="#" class="footer__waLink">
+					<img src="img/wa-logo.svg" alt="Свзяаться WhatsApp">
+				</a>
+			</div>
+		</div>
+	</footer>
+	<script src="js/all.js"></script>
 </body>
 </html>

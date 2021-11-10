@@ -3,6 +3,10 @@
 	color: @white;
 	height: 96vh;
 
+	.lg-block({
+		height: auto;
+	});
+
 	.container {
 		display: flex;
 		flex-direction: column;
@@ -13,11 +17,40 @@
 		justify-content: space-between;
 		align-items: center;
 		max-height: 750px;
+
+		.md-block({
+			flex-wrap: wrap;
+			justify-content: center;
+			max-height: 100%;
+			margin-top: -50px;
+		});
 	}
 
 	&__desc {
 		max-width: 550px;
 		margin-right: auto;
+		position: relative;
+		z-index: 10;
+
+		.md-block({
+			order: 1;
+			max-width: 100%;
+			margin: -40px auto 0;
+			padding: 30px 20px;
+			text-align: center;
+			box-sizing: border-box;
+			background-color: @white;
+		});
+
+		.sm-block({
+			text-align: left;
+		});
+	}
+
+	&__title {
+		.md-block({
+			color: @black-lighten;
+		});
 	}
 
 	&__caption {
@@ -27,14 +60,53 @@
 		letter-spacing: 0.1em;
 		text-transform: uppercase;
 		margin-top: 20px;
+
+		.sm-block({
+			font-size: 20px;
+			line-height: 26px;
+			margin-top: 10px;
+		});
+
+		.xs-block({
+			font-size: 15px;
+			line-height: 17px;
+		});
 	}
 
 	&__text {
 		margin-top: 60px;
+
+		.lg-block({
+			margin-top: 30px;
+		});
+
+		.md-block({
+			color: rgba(25, 34, 45, 0.4);
+			padding: 0 10%;
+		});
+
+		.sm-block({
+			margin-top: 20px;
+			padding: 0;
+		});
+
+		.xs-block({
+			margin-top: 14px;
+		});
 	}
 
 	&__controls {
 		margin-top: 34px;
+
+		.sm-block({
+			display: flex;
+			justify-content: space-between;
+			text-align: center;
+		});
+
+		.xs-block({
+			margin-top: 20px;
+		});
 	}
 
 	&__btn {
@@ -49,9 +121,49 @@
 		border: 2px solid @white;
 		box-sizing: border-box;
 		box-shadow: 0px 6px 16px -4px rgba(39, 51, 59, 0.1);
+		transition: background-color .4s;
 
-		&--active {
+		.md-block({
+			color: @yellow;
+			border-color: @yellow;
+		});
+
+		.sm-block({
+			// width: 35%;
+			margin: 0;
+			line-height: 32px;
+		});
+
+		&:hover, &:focus {
 			background-color: @yellow;
+
+			.md-block({
+				color: @white;
+			});
+		}
+
+		&:active {
+			background-color: darken(@yellow, 12%);
+		}
+
+		&--gold {
+			background-color: @yellow;
+
+			.md-block({
+				color: @white;
+			});
+
+			.sm-block({
+				margin-right: 22px;
+			});
+
+			&:hover {
+				background-color: lighten(@yellow, 8%);
+			}
+
+			&:active {
+				background-color: darken(@yellow, 4%);
+			}
 		}
 	}
 
@@ -63,6 +175,17 @@
 
 		position: relative;
 		z-index: 1;
+
+		.lg-block({
+			// min-width: 480px;
+			transform: translateY(0px);
+		});
+
+		.md-block({
+			max-width: 600px;
+		});
+
+		
 		// margin-right: 230px;
 		// margin-right: auto;
 

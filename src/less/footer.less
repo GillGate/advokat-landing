@@ -1,0 +1,51 @@
+.footer {
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		padding: 30px 0;
+
+		.xs-block({
+			flex-direction: column;
+		});
+	}
+
+	&__nav {
+		margin-left: auto;
+
+		.md-block({
+			margin-right: auto;
+		});
+
+		.xs-block({
+			margin: 20px auto;
+		});
+	}
+
+	&__link {
+		margin: 0 62px;
+		color: @black-lighten;
+		transition: color .4s ease;
+
+		.md-block({
+			margin: 0 36px;
+		});
+
+		.sm-block({
+			font-size: 14px;
+			margin: 0 10px;
+		});
+
+		&:hover, &:active, &:focus {
+			color: @gold;
+		}
+	}
+
+	&__waLink {
+		margin-left: 58px;
+
+		.sm-block({
+			margin-left: 0;
+		});
+	}
+}

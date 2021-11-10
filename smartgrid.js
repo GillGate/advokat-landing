@@ -8,17 +8,19 @@ const settings = {
         fields: '140px'
     },
     breakPoints: {
+        lg: {
+            width: "1440px",
+            fields: "50px"
+        },
         md: {
             width: "1024px",
-            fields: "15px"
+            fields: "20px"
         },
         sm: {
-            width: "760px",
-            fields: "10px"
+            width: "760px"
         },
         xs: {
-            width: "480px",
-            fields: "5px"
+            width: "480px"
         }
     },
     oldSizeStyle: false,
