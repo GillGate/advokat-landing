@@ -41,10 +41,10 @@
 					</div>
 				</div>
 				<div class="intro__img">
-					<picture>
+					<!-- <picture> -->
 						<!--source media="(min-width:760px)" srcset="img/advokatt-alt.png" alt="Адвокат Ольга Егорова"-->
-						<img src="img/advokatt-alt.png" alt="Адвокат Ольга Егорова">
-					</picture>
+						<img src="img/advokat.png" width="800" alt="Адвокат Ольга Егорова">
+					<!-- </picture> -->
 				</div>
 			</div>
 		</div>
@@ -153,14 +153,14 @@
 					</p>
 				</div>
 				<div class="advice__formWrapper">
-					<form class="form advice__form">
+					<form method="POST" class="form advice__form" data-src="https://gillgate.bhuser.ru">
 						<label class="form__input advice__formInput" data-error="">
-							<input type="email" placeholder="E-mail">
+							<input type="email" name="advice-email" placeholder="E-mail">
 						</label>
 						<label class="form__input advice__formInput" data-error="">
-							<input type="tel" placeholder="Телефон">
+							<input type="tel" name="advice-phone" placeholder="Телефон">
 						</label>
-						<button class="form__btn advice__btn">Отправить</button>
+						<button type="submit" class="form__btn advice__btn">Отправить</button>
 					</form>
 				</div>
 			</div>
@@ -234,7 +234,7 @@
 			<h2 class="title contacts__title">Контакты</h2>
 			<div class="contacts__wrapper">
 				<div class="contacts__img">
-					<img src="img/contacts-img.jpg" width="832" alt="Судебный процесс">
+					<img src="img/contacts-img.jpg" width="832" height="500" alt="Судебный процесс">
 				</div>
 				<div class="contacts__aside">
 					<ul class="contacts__list contactsList">
@@ -262,7 +262,7 @@
 							</div>
 						</li>
 					</ul>
-					<form class="form contacts__form contactsForm">
+					<form method="POST" class="form contacts__form contactsForm" data-src="https://gillgate.bhuser.ru">
 						<div class="contactsForm__wrapper">
 							<h3 class="contactsForm__title">Запись на консультацию юриста</h3>
 							<label class="form__input contactsForm__input" data-error="">
@@ -281,7 +281,7 @@
 								<textarea placeholder="Описание проблемы" name="contacts-desc" maxlength="800"></textarea>
 							</label>
 						</div>
-						<button class="form__btn contactsForm__btn">Отправить</button>
+						<button type="submit" class="form__btn contactsForm__btn">Отправить</button>
 					</form>
 				</div>
 			</div>

@@ -3,6 +3,8 @@ $(function(){
 	const $sliderDesc = $('.about__desc');
 	const $sliderBtn = $('.about__btn');
 	const $navItem = $('.about__navItem');
+	let offset = window.pageYOffset;
+	let clWidth = document.documentElement.clientWidth;
 
 	$slider.slick({
 		slidesToShow: 1,
@@ -24,14 +26,12 @@ $(function(){
 	});
 
 	$navItem.on('click', function(e) {
-		if(!isClickedNavItem) {
-			let slideIndex = $(this).data('slick-dot');
+		let slideIndex = $(this).data('slick-dot');
 
-			$navItem.removeClass('about__navItem--active');
-			$(this).addClass('about__navItem--active');
+		$navItem.removeClass('about__navItem--active');
+		$(this).addClass('about__navItem--active');
 
-			$slider.slick('slickGoTo', slideIndex);
-		}
+		$slider.slick('slickGoTo', slideIndex);
 	});
 
 	$sliderBtn.on('click', function(e) {
@@ -44,8 +44,10 @@ $(function(){
 	$('.navigateLink').on('click', function(e) {
 		e.preventDefault();
 
-		$('.nav__bar').removeClass('nav__bar--open');
-        $('.nav__body').slideUp(300).removeClass('nav__body--active');
+		if(clWidth <= 480) {
+			$('.nav__bar').removeClass('nav__bar--open');
+        	$('.nav__body').slideUp(300).removeClass('nav__body--active');
+		}
 
 		let target = $(this).attr('href');
 		
@@ -59,22 +61,134 @@ $(function(){
         $('.nav__body').slideToggle(300).toggleClass('nav__body--active');
     });
 
-	let offset = window.pageYOffset;
-
 	function checkOffset() {
 		offset = window.pageYOffset;
 		let header = $('.header');
 
 		if (offset > 550) {
-		  $('body').css('marginTop', '92px');
-		  header.addClass('header--fixed');
+			if(clWidth <= 1440) {
+				$('body').css('marginTop', '94px');
+			}
+
+		  	header.addClass('header--fixed');
 		} else {
-		  $('body').css('marginTop', '0px');
-		  header.removeClass('header--fixed');
+			$('body').css('marginTop', '0px');
+			header.removeClass('header--fixed');
 		}
 	}
 
 	checkOffset();
 
-	$(window).on('scroll', checkOffset);
+	$(window).on('scroll', checkOffset); // оптимизировать
+
+	$('.advice__btn').on('click', function(e) {
+		let $submit = $(this);
+		let $form = $('.advice__form');
+		let $inputWrap = $('.advice__formInput');
+		let $errors = $('.advice__formInput[data-error]');
+
+		e.preventDefault();
+		$submit.attr('disabled', true);
+
+		$.ajax({
+            url: `/php/advice.php`,
+            method: 'POST',
+            data: $form.serialize(),
+            dataType: 'json',
+            timeout: 10000,
+            success: onSucess,
+            error: function() {
+                // $result.html('Превышено ожидание ответа от сервера...');
+            },
+            complete: function() {
+                $submit.attr('disabled', false);
+                // console.log($form.serialize());
+            },
+        });
+
+        function onSucess(data) {
+        	if(data.res) {
+	        	$inputWrap.removeClass('form__input--wrong');
+	           
+	           let link = '';
+
+		        link = 'https://gillgate.bhuser.ru/thanks.html';
+
+				let a = document.createElement("a");
+				a.setAttribute('href', link);
+				a.click();
+
+				$inputWrap.removeClass('form__input--wrong');
+				$form.trigger('reset');
+	        } else {
+	           $errors.attr('data-error', '');
+	           $inputWrap.removeClass('form__input--wrong');
+
+	            for( let name in data.errors) {
+	                let target = $(`[name=${name}]`);
+	                
+	                if(target.length > 0){
+	                    target.closest($errors).attr('data-error', data.errors[name]);
+	                    target.parent().addClass('form__input--wrong');
+	                }
+	            }
+	        }
+        }
+	});
+
+	$('.contactsForm__btn').on('click', function(e) {
+		let $submit = $(this);
+		let $form = $('.contactsForm');
+		let $inputWrap = $('.contactsForm__input');
+		// let $path   = $form.data('src');
+		let $errors = $('.contactsForm__input[data-error]');
+
+		e.preventDefault();
+		$submit.attr('disabled', true);
+
+		$.ajax({
+            url: `/php/contacts.php`,
+            method: 'POST',
+            data: $form.serialize(),
+            dataType: 'json',
+            timeout: 10000,
+            success: onSuccess,
+            error: function() {
+                // $result.html('Превышено ожидание ответа от сервера...');
+            },
+            complete: function() {
+                $submit.attr('disabled', false);
+                // console.log($form.serialize());
+            },
+        });
+
+        function onSuccess(data) {
+        	if(data.res) {
+	        	$inputWrap.removeClass('form__input--wrong');
+	           
+	           let link = '';
+
+		        link = 'https://gillgate.bhuser.ru/thanks.html';
+
+				let a = document.createElement("a");
+				a.setAttribute('href', link);
+				a.click();
+
+				$inputWrap.removeClass('form__input--wrong');
+				$form.trigger('reset');
+	        } else {
+	           $errors.attr('data-error', '');
+	           $inputWrap.removeClass('form__input--wrong');
+
+	            for( let name in data.errors) {
+	                let target = $(`[name=${name}]`);
+	                
+	                if(target.length > 0){
+	                    target.closest($errors).attr('data-error', data.errors[name]);
+	                    target.parent().addClass('form__input--wrong');
+	                }
+	            }
+	        }
+        }
+	});
 });

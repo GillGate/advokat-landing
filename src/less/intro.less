@@ -3,6 +3,14 @@
 	color: @white;
 	height: 96vh;
 
+	&--thanks {
+		height: 100vh !important;
+
+		.container {
+			height: inherit;
+		}
+	}
+
 	.lg-block({
 		height: auto;
 	});
@@ -99,13 +107,14 @@
 		margin-top: 34px;
 
 		.sm-block({
-			display: flex;
-			justify-content: space-between;
 			text-align: center;
 		});
 
 		.xs-block({
 			margin-top: 20px;
+			display: flex;
+			justify-content: space-between;
+			text-align: center;
 		});
 	}
 

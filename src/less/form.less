@@ -19,6 +19,21 @@
 				color: #B9C2CC;
 			}
 		}
+
+		&--wrong {
+			border: 1px solid red !important;
+			margin-bottom: 27px !important;
+		}
+
+		&::after {
+			content: attr(data-error);
+			display: block;
+			text-align: left !important;
+			color: red;
+			font-size: 14px;
+			padding-left: 4px;
+			margin-bottom: 10px;
+		}
 	}
 
 	&__textarea {
